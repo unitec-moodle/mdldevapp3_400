@@ -77,7 +77,13 @@ if (false) {                                                                    
 
 if ($desirednumsections > $maxsections) {
     // Increase in number of sections is not allowed.
-    \core\notification::warning(get_string('maxsectionslimit', 'moodle', $maxsections));
+    if (get_string_manager()->string_exists('maxsectionslimit', 'moodle')) {
+        $maxsectionslimit = get_string('maxsectionslimit', 'moodle', $maxsections);
+    } else {
+        $maxsectionslimit = "Cannot create new section as it would exceed the maximum"
+                            . " number of sections allowed for this course ({$maxsections}).";
+    }
+    \core\notification::warning($maxsectionslimit);
     $increase = null;
     $insertsection = null;
     $numsections = 0;
@@ -103,10 +109,9 @@ if (false) {                                                                    
         update_course((object)array('id' => $course->id,
             'numsections' => $courseformatoptions['numsections']));
     }
-    if (!$returnurl) {
-        $returnurl = course_get_url($course);
-        $returnurl->set_anchor('changenumsections');
-    }
+    // Overwriting returnurl to be consistent with block below even though we never get here.
+    $returnurl = course_get_url($course);
+    $returnurl->set_anchor('changenumsections');
 
 } else if (course_get_format($course)->uses_sections() && $insertsection !== null) {
     if (true) {
@@ -119,10 +124,8 @@ if (false) {                                                                    
         $sections[] = format_multitopic_course_create_section($course, $insertsection);
         // CHANGED LINE ABOVE: Use custom method, and send section info, not section number.
     }
-    if (!$returnurl) {
-        $returnurl = course_get_url($course, $sections[0], []);
-        // CHANGED LINE ABOVE: Send section info, not section number or section return.
-    }
+    $returnurl = course_get_url($course, $sections[0], []);
+    // CHANGED LINE ABOVE: Send section info, not section number or section return.
 }
 
 // Redirect to where we were..
