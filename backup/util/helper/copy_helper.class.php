@@ -72,7 +72,7 @@ final class copy_helper {
      * @param \stdClass $copydata Course copy data from process_formdata
      * @return array $copyids The backup and restore controller ids
      */
-    public static function create_copy(\stdClass $copydata): array {
+    public static function create_copy(\stdClass $copydata, $clone_creation_date = true): array {
         global $USER;
         $copyids = [];
 
@@ -89,6 +89,7 @@ final class copy_helper {
             \backup::MODE_COPY, $USER->id, \backup::TARGET_NEW_COURSE, null,
             \backup::RELEASESESSION_NO, $copydata);
         $copyids['restoreid'] = $rc->get_restoreid();
+        $copyids['clone_creation_date'] = $clone_creation_date;
 
         $bc->set_status(\backup::STATUS_AWAITING);
         $bc->get_status();
