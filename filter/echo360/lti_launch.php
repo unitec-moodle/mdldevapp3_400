@@ -46,6 +46,9 @@ if ($width != null && $height != null) {
 }
 
 try {
+    // There are some scenarios where we set $cmid to 0 on filter.php. For those cases,
+    // the exception block is called, where a course is instantiated by using the courseId
+    // value read from the URL.
     $cm = get_coursemodule_from_id('', $cmid, 0, false, MUST_EXIST);
     $course = $DB->get_record('course', array('id' => $cm->course), '*', MUST_EXIST);
     $context = context_course::instance($course->id);
@@ -99,10 +102,13 @@ if ($width != null && $height != null) {
         'launch_presentation_height'          => $height
     );
 }
+
 $lticonfig = $lti->generate_lti_configuration($params);
 
 // Generate LTI launch form and post details.
 $formid = 'form-' . rand(1000, 9999);
+// XSS Protection, only launch to the configured URL.
+$url = $lticonfig['launch_url'] . '?' . parse_url($url, PHP_URL_QUERY);
 echo html_writer::start_tag('html');
 echo html_writer::start_tag('body');
 echo html_writer::start_tag('form', array('id' => $formid, 'action' => $url, 'method' => 'post'));
