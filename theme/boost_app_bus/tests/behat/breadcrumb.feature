@@ -1,6 +1,6 @@
 @javascript @theme_boost_app_bus
 Feature: Breadcrumbs navigation
-  To navigate in boost_app_bus theme
+  To navigate in boost theme
   As an admin user
   I should see breadcrumbs
 

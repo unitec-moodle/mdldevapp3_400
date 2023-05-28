@@ -1,6 +1,6 @@
 @javascript @theme_boost_app_bus
 Feature: Context settings menu
-  To navigate in boost_app_bus theme I need to use the context settings menu
+  To navigate in boost theme I need to use the context settings menu
 
   Background:
     Given the following "courses" exist:

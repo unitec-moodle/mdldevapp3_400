@@ -62,19 +62,21 @@
         <span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
     </button>
 
-    <a href="{{{ config.homeurl }}}" class="navbar-brand d-none d-md-flex align-items-center m-0 mr-4 p-0 aabtn">
+    <!-- completely remove site name or home icon - MH -->
+    <!--<a href="{{{ config.homeurl }}}" class="navbar-brand d-none d-md-flex align-items-center m-0 mr-4 p-0 aabtn">
 
         {{# output.should_display_navbar_logo }}
             <img src="{{output.get_compact_logo_url}}" class="logo mr-1" alt="{{sitename}}">
         {{/ output.should_display_navbar_logo }}
-        {{^ output.should_display_navbar_logo }}
-        
+        {{^ output.should_display_navbar_logo }} -->
+
         <!-- swap site name for home icon - MH -->
            <!-- {{{ sitename }}} -->
-        
-        <span class="site-name d-none d-md-inline fa fa-home fa-lg"></span>
-        {{/ output.should_display_navbar_logo }}
-    </a>
+           <!-- <span class="site-name d-none d-md-inline fa fa-home fa-lg"></span> -->
+
+    <!--    {{/ output.should_display_navbar_logo }}
+    </a> -->
+    
     {{#primarymoremenu}}
         <div class="primary-navigation">
             {{> core/moremenu}}

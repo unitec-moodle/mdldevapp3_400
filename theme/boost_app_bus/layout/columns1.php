@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * A one column layout for the boost_app_bus theme.
+ * A one column layout for the boost theme.
  *
  * @package   theme_boost_app_bus
  * @copyright 2016 Damyon Wiese

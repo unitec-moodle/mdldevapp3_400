@@ -49,23 +49,10 @@ if ($ADMIN->fulltree) {
         $choices[$file->get_filename()] = $file->get_filename();
     }
     // These are the built in presets.
-    $choices['default.scss'] = 'default.scss';   
+    $choices['default.scss'] = 'default.scss';
     $choices['UnitecTePukengaDark.scss'] = 'UnitecTePukengaDark.scss';
     $choices['UnitecTePukengaLight.scss'] = 'UnitecTePukengaLight.scss';
-    $choices['unitec-00.scss'] = 'unitec-00.scss';
-    $choices['unitec-01.scss'] = 'unitec-01.scss';
-    $choices['unitec-02.scss'] = 'unitec-02.scss';
-    $choices['unitec-03.scss'] = 'unitec-03.scss';
-    $choices['unitec-04.scss'] = 'unitec-04.scss';
-    $choices['unitec-05.scss'] = 'unitec-05.scss';
-    $choices['unitec-06.scss'] = 'unitec-06.scss';
-    $choices['unitec-07.scss'] = 'unitec-07.scss';
-    $choices['unitec-08.scss'] = 'unitec-08.scss';
-    $choices['unitec-09.scss'] = 'unitec-09.scss';
-    $choices['unitec-10.scss'] = 'unitec-10.scss';
-    $choices['police.scss'] = 'police.scss';
-    $choices['hawkins.scss'] = 'hawkins.scss';
-    $choices['swift.scss'] = 'swift.scss';
+    $choices['custom.scss'] = 'custom.scss';
     $choices['plain.scss'] = 'plain.scss';
 
     $setting = new admin_setting_configthemepreset($name, $title, $description, $default, $choices, 'boost_app_bus');

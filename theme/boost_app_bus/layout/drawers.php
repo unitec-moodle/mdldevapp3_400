@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * A drawer based layout for the boost_app_bus theme.
+ * A drawer based layout for the boost theme.
  *
  * @package   theme_boost_app_bus
  * @copyright 2021 Bas Brands
@@ -67,7 +67,6 @@ $haslowernavdrawer = strpos($lowernavdrawerhtml, 'data-block=') !== false;
 if (!$hasblocks) {
     $blockdraweropen = false;
 }
-
 $courseindex = core_course_drawer();
 if (!$courseindex) {
     $courseindexopen = false;

@@ -1,6 +1,6 @@
 @javascript @theme_boost_app_bus
 Feature: Region main settings menu
-  To navigate in boost_app_bus theme I need to use the region main settings menu
+  To navigate in boost theme I need to use the region main settings menu
 
   Background:
     Given the following "courses" exist:

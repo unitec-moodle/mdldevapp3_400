@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * boost_app_bus config.
+ * Boost config.
  *
  * @package   theme_boost_app_bus
  * @copyright 2016 Frédéric Massart
@@ -29,11 +29,6 @@ require_once(__DIR__ . '/lib.php');
 $THEME->name = 'boost_app_bus';
 $THEME->sheets = [];
 $THEME->editor_sheets = [];
-
-//add addtional css sheets here
-$THEME->sheets = array('legacy');
-
-
 $THEME->editor_scss = ['editor'];
 $THEME->usefallback = true;
 $THEME->scss = function($theme) {
@@ -185,7 +180,7 @@ $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 $THEME->iconsystem = \core\output\icon_system::FONTAWESOME;
 $THEME->haseditswitch = true;
 $THEME->usescourseindex = true;
-// By default, all boost_app_bus theme do not need their titles displayed.
+// By default, all boost theme do not need their titles displayed.
 $THEME->activityheaderconfig = [
     'notitle' => true
 ];

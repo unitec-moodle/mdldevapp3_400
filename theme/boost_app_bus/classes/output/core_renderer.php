@@ -19,8 +19,6 @@ namespace theme_boost_app_bus\output;
 use moodle_url;
 use html_writer;
 use get_string;
-use custom_menu_item;
-use custom_menu;
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -32,66 +30,15 @@ defined('MOODLE_INTERNAL') || die;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_renderer extends \core_renderer {
-    
-        protected function render_custom_menu(custom_menu $menu) {
-        global $CFG;
-        
- /*##################################################################################### 
- ############  Custom renderer to add My Courses to the custom menu - MH  ##############
- ######################################################################################*/   
-        
-        $mycourses = $this->page->navigation->get('mycourses');
- 
-        if (isloggedin() && $mycourses && $mycourses->has_children()) {
-            $branchlabel = get_string('mycourses', 'theme_boost_app_bus');
-            $branchurl   = new moodle_url('/course/index.php');
-            $branchtitle = $branchlabel;
-            $branchsort  = 10000;
- 
-            $branch = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
- 
-            foreach ($mycourses->children as $coursenode) {
-                $branch->add($coursenode->get_content(), $coursenode->action, $coursenode->get_title());
-            }
-        }       
- /*###################################################################################
- ############ End Custom renderer to add My Courses to the custom menu  ##############
- #####################################################################################*/ 
-        
-        $langs = get_string_manager()->get_list_of_translations();
-        $haslangmenu = $this->lang_menu() != '';
 
-        if (!$menu->has_children() && !$haslangmenu) {
-            return '';
-        }
-
-        if ($haslangmenu) {
-            $strlang = get_string('language');
-            $currentlang = current_language();
-            if (isset($langs[$currentlang])) {
-                $currentlang = $langs[$currentlang];
-            } else {
-                $currentlang = $strlang;
-            }
-            $this->language = $menu->add($currentlang, new moodle_url('#'), $strlang, 10000);
-            foreach ($langs as $langtype => $langname) {
-                $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
-            }
-        }
-
-        $content = '';
-        foreach ($menu->get_children() as $item) {
-            $context = $item->export_for_template($this);
-            $content .= $this->render_from_template('core/custom_menu_item', $context);
-        }
-
-        return $content;
-    }
-  /* #################################################################################################
-  ###################################### CORE FUNCTIONS ##############################################
-  ###################################################################################################*/  
-
-    public function edit_button(moodle_url $url) {
+    /**
+     * Returns HTML to display a "Turn editing on/off" button in a form.
+     *
+     * @param moodle_url $url The URL + params to send through when clicking the button
+     * @param string $method
+     * @return string HTML the button
+     */
+    public function edit_button(moodle_url $url, string $method = 'post') {
         if ($this->page->theme->haseditswitch) {
             return;
         }
@@ -103,12 +50,12 @@ class core_renderer extends \core_renderer {
             $url->param('edit', 'on');
             $editstring = get_string('turneditingon');
         }
-        $button = new \single_button($url, $editstring, 'post', ['class' => 'btn btn-primary']);
+        $button = new \single_button($url, $editstring, $method, ['class' => 'btn btn-primary']);
         return $this->render_single_button($button);
     }
 
     /**
-     * Renders the "breadcrumb" for all pages in boost_app_bus.
+     * Renders the "breadcrumb" for all pages in boost.
      *
      * @return string the HTML for the navbar.
      */
@@ -214,7 +161,8 @@ class core_renderer extends \core_renderer {
                 $heading = $this->page->course->fullname;
             } else {
                 $heading = $this->page->cm->get_formatted_name();
-                $imagedata = $this->pix_icon('monologo', '', $this->page->activityname, ['class' => 'activityicon']);
+                $imagedata = html_writer::img($this->page->cm->get_icon_url()->out(false), '',
+                    ['class' => 'icon activityicon', 'aria-hidden' => 'true']);
                 $purposeclass = plugin_supports('mod', $this->page->activityname, FEATURE_MOD_PURPOSE);
                 $purposeclass .= ' activityiconcontainer';
                 $purposeclass .= ' modicon_' . $this->page->activityname;

@@ -109,14 +109,14 @@ define(['jquery', 'core_form/events'], function($, FormEvent) {
             });
 
             var form = element.closest('form');
-            if (form && !('boost_app_busFormErrorsEnhanced' in form.dataset)) {
+            if (form && !('boostFormErrorsEnhanced' in form.dataset)) {
                 form.addEventListener('submit', function() {
                     var visibleError = $('.form-control-feedback:visible');
                     if (visibleError.length) {
                         visibleError[0].focus();
                     }
                 });
-                form.dataset.boost_app_busFormErrorsEnhanced = 1;
+                form.dataset.boostFormErrorsEnhanced = 1;
             }
         }
     };

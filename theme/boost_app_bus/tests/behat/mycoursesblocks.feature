@@ -1,5 +1,5 @@
 @javascript @theme_boost_app_bus
-Feature: My courses page block layout in boost_app_bus theme
+Feature: My courses page block layout in Boost theme
   In order to have a clear and consistent view on the my courses page
   As a student
   I need to see the blocks in the expected placement

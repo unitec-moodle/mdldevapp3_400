@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * boost_app_bus.
+ * Boost.
  *
  * @package    theme_boost_app_bus
  * @copyright  2016 Frédéric Massart

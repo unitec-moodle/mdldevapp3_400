@@ -19,7 +19,7 @@
 
     Admin time setting template.
 
-    boost_app_bus 2 column layout template.
+    Boost 2 column layout template.
 
     Context variables required for this template:
     * sitename - The name of the site
@@ -61,7 +61,7 @@
 
     <div id="page" name="3col" class="container-fluid d-print-block">
         {{{ output.full_header }}}
-        
+
                 <!-- ADDITIONAL BLOCK START -->
                 {{#hastopfullwidth}}
                 <section data-region="blocks-column" class="top-fullwidth">
@@ -69,7 +69,7 @@
                 </section>
                 {{/hastopfullwidth}}
                 <!-- ADDITIONAL BLOCK END -->
-        
+
             {{#secondarymoremenu}}
                 <div class="secondary-navigation">
                     {{> core/moremenu}}
@@ -82,7 +82,7 @@
                     <div> {{{ regionmainsettingsmenu }}} </div>
                 </div>
                 {{/hasregionmainsettingsmenu}}
-                <section id="region-main" {{#hasblocks}}class="has-blocks mb-3"{{/hasblocks}} aria-label="{{#str}}content{{/str}}">                    
+                <section id="region-main" {{#hasblocks}}class="has-blocks mb-3"{{/hasblocks}} aria-label="{{#str}}content{{/str}}">
 
                     {{#hasregionmainsettingsmenu}}
                         <div class="region_main_settings_menu_proxy"></div>
@@ -107,7 +107,6 @@
                 {{/hasblocks}}
             </div>
         </div>
-            
                 <!-- ADDITIONAL BLOCK START -->
                 {{#hasbottomfullwidth}}
                 <section data-region="blocks-column" class="d-print-none bottom-fullwidth">

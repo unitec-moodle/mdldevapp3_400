@@ -1,6 +1,6 @@
 @javascript @theme_boost_app_bus
 Feature: Primary navigation
-  To navigate in boost_app_bus theme
+  To navigate in boost theme
   As a user
   I need to use the primary navigation
 

@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * An embedded layout for the boost_app_bus theme.
+ * An embedded layout for the boost theme.
  *
  * @package   theme_boost_app_bus
  * @copyright 2016 Damyon Wiese
@@ -26,9 +26,11 @@ defined('MOODLE_INTERNAL') || die();
 
 $fakeblockshtml = $OUTPUT->blocks('side-pre', array(), 'aside', true);
 $hasfakeblocks = strpos($fakeblockshtml, 'data-block="_fake"') !== false;
+$renderer = $PAGE->get_renderer('core');
 
 $templatecontext = [
     'output' => $OUTPUT,
+    'headercontent' => $PAGE->activityheader->export_for_template($renderer),
     'hasfakeblocks' => $hasfakeblocks,
     'fakeblocks' => $fakeblockshtml,
 ];

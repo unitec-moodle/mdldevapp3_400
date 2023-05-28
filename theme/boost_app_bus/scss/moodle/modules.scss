@@ -471,10 +471,6 @@ $author-image-margin-sm: 8px;
 .filter-dates-popover {
     width: 100%;
     max-width: 41.5em;
-
-    .mform {
-        margin-left: -3em;
-    }
 }
 
 $grading-drawer-width: 430px !default;
@@ -1395,6 +1391,8 @@ $popout-header-height: 4rem;
 
 .path-mod-assign [data-region="grade-panel"] .mform .fitem.has-popout .felement {
     width: 100%;
+    overflow: auto;
+    height: calc(100% - 4rem);
 }
 
 .path-mod-assign [data-region="grade-panel"] .mform .fitem .felement {

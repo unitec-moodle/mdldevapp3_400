@@ -23,7 +23,7 @@ use action_link;
 use lang_string;
 
 /**
- * Creates a navbar for boost_app_bus that allows easy control of the navbar items.
+ * Creates a navbar for boost that allows easy control of the navbar items.
  *
  * @package    theme_boost_app_bus
  * @copyright  2021 Adrian Greeve <adrian@moodle.com>
@@ -46,13 +46,13 @@ class boostnavbar implements \renderable {
         foreach ($this->page->navbar->get_items() as $item) {
             $this->items[] = $item;
         }
-        $this->prepare_nodes_for_boost_app_bus();
+        $this->prepare_nodes_for_boost();
     }
 
     /**
-     * Prepares the navigation nodes for use with boost_app_bus.
+     * Prepares the navigation nodes for use with boost.
      */
-    protected function prepare_nodes_for_boost_app_bus(): void {
+    protected function prepare_nodes_for_boost(): void {
         global $PAGE;
 
         // Remove the navbar nodes that already exist in the primary navigation menu.
@@ -147,14 +147,14 @@ class boostnavbar implements \renderable {
     /**
      * Get all the boostnavbaritem elements.
      *
-     * @return boostnavbaritem[] boost_app_bus navbar items.
+     * @return boostnavbaritem[] Boost navbar items.
      */
     public function get_items(): array {
         return $this->items;
     }
 
     /**
-     * Removes all navigation items out of this boost_app_bus navbar
+     * Removes all navigation items out of this boost navbar
      */
     protected function clear_items(): void {
         $this->items = [];
@@ -185,7 +185,7 @@ class boostnavbar implements \renderable {
     }
 
     /**
-     * Remove a boostnavbaritem from the boost_app_bus navbar.
+     * Remove a boostnavbaritem from the boost navbar.
      *
      * @param  string|int $itemkey An identifier for the boostnavbaritem
      * @param  int|null $itemtype An additional type identifier for the boostnavbaritem (optional)

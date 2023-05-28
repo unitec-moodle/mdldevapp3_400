@@ -17,7 +17,7 @@
 {{!
     @template theme_boost_app_bus/maintenance
 
-    boost_app_bus maintenance layout template.
+    Boost maintenance layout template.
 
     Context variables required for this template:
     * output - The core renderer for the page
@@ -54,13 +54,16 @@
 {{> core/local/toast/wrapper}}
 
 {{{ output.standard_top_of_body_html }}}
-<div id="page" name="embedded" {{#hasfakeblocks}}class="has-fake-blocks"{{/hasfakeblocks}}>
+<div id="page" {{#hasfakeblocks}}class="has-fake-blocks"{{/hasfakeblocks}}>
     {{#hasfakeblocks}}
         <section class="embedded-blocks" aria-label="{{#str}}blocks{{/str}}">
             {{{ fakeblocks }}}
         </section>
     {{/hasfakeblocks}}
     <section class="embedded-main">
+        {{#headercontent}}
+            {{> core/activity_header }}
+        {{/headercontent}}
         {{{ output.main_content }}}
     </section>
 </div>

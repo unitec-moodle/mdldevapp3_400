@@ -1,5 +1,5 @@
 @tool @tool_usertours @theme_boost_app_bus
-Feature: Reset a tour for boost_app_bus
+Feature: Reset a tour for Boost
   In order to test a tour
   As an administrator
   I can reset the tour to force it to display again

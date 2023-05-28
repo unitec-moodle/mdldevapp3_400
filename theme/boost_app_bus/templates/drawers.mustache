@@ -17,7 +17,7 @@
 {{!
     @template theme_boost_app_bus/drawers
 
-    boost_app_bus drawer template.
+    Boost drawer template.
 
     Context variables required for this template:
     * sitename - The name of the site
@@ -91,10 +91,8 @@
             {{$closebuttontext}}{{#str}}closeblockdrawer, core{{/str}}{{/closebuttontext}}
         {{/ theme_boost_app_bus/drawer}}
     {{/hasblocks}}
-    <div id="page" name="drawers" data-region="mainpage" data-usertour="scroller" class="drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}} drag-container">
-        
+    <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}} drag-container">
         <div id="topofscroll" class="main-inner">
-            
             <div class="drawer-toggles d-flex">
                 {{#courseindex}}
                     <div class="drawer-toggler drawer-left-toggle open-nav d-print-none">
@@ -136,7 +134,7 @@
                     {{> core/moremenu}}
                 </div>
             {{/secondarymoremenu}}
-            
+
             <div class="d-print-none" style="display: inline-block; width: 100%;">
                 <!-- ADDITIONAL BLOCK START -->
                 {{#hastopfullwidth}}
@@ -146,18 +144,15 @@
                 {{/hastopfullwidth}}
                 <!-- ADDITIONAL BLOCK END -->
             </div>
-            
-            <div id="page-content" class="pb-3 d-print-block"> 
-            
-                
+
+            <div id="page-content" class="pb-3 d-print-block">
                 <div id="region-main-box">
                     {{#hasregionmainsettingsmenu}}
                     <div id="region-main-settings-menu" class="d-print-none">
                         <div> {{{ regionmainsettingsmenu }}} </div>
                     </div>
-                    <section id="region-main" aria-label="{{#str}}content{{/str}}"> 
-                        
                     {{/hasregionmainsettingsmenu}}
+                    <section id="region-main" aria-label="{{#str}}content{{/str}}">
 
                         {{#hasregionmainsettingsmenu}}
                             <div class="region_main_settings_menu_proxy"></div>
@@ -176,11 +171,11 @@
                         {{{ output.main_content }}}
                         {{{ output.activity_navigation }}}
                         {{{ output.course_content_footer }}}
-                        
+
                     </section>
                 </div>
             </div>
-                 <div class="d-print-none" style="display: inline-block; width: 100%;"> 
+                 <div class="d-print-none" style="display: inline-block; width: 100%;">
                 <!-- ADDITIONAL BLOCK START -->
                 {{#hasbottomfullwidth}}
                 <section data-region="blocks-column" class="d-print-none bottom-fullwidth">
@@ -190,7 +185,6 @@
                 <!-- ADDITIONAL BLOCK END -->
                 </div>
         </div>
-        
         {{> theme_boost_app_bus/footer }}
     </div>
     {{{ output.standard_after_main_region_html }}}

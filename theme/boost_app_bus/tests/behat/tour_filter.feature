@@ -1,18 +1,18 @@
 @tool @tool_usertours @theme_boost_app_bus
-Feature: Apply tour filters to a tour for classic_var_01
+Feature: Apply tour filters to a tour for Classic
   In order to give more directed tours
   As an administrator
-  I need to create a user tour specific to theme classic_var_01
+  I need to create a user tour specific to theme Classic
 
   @javascript
-  Scenario: Add a tour for theme classic_var_01
+  Scenario: Add a tour for theme Classic
     Given I log in as "admin"
     And I add a new user tour with:
       | Name                | First tour |
       | Description         | My first tour |
       | Apply to URL match  | /my/% |
       | Tour is enabled     | 1 |
-      | Theme               | classic_var_01 |
+      | Theme               | Classic |
     And I add steps to the "First tour" tour:
       | targettype                | Title   | id_content                                                                                                                     | Content type   |
       | Display in middle of page | Welcome | Welcome to your personal learning space. We'd like to give you a quick tour to show you some of the areas you may find helpful | Manual         |
@@ -20,14 +20,14 @@ Feature: Apply tour filters to a tour for classic_var_01
     Then I should not see "Welcome to your personal learning space. We'd like to give you a quick tour to show you some of the areas you may find helpful"
 
   @javascript
-  Scenario: Add a tour for theme boost_app_bus
+  Scenario: Add a tour for theme Boost
     Given I log in as "admin"
     And I add a new user tour with:
       | Name                | First tour |
       | Description         | My first tour |
       | Apply to URL match  | /my/% |
       | Tour is enabled     | 1 |
-      | Theme               | boost_app_bus |
+      | Theme               | Boost |
     And I add steps to the "First tour" tour:
       | targettype                | Title   | id_content                                                                                                                     | Content type   |
       | Display in middle of page | Welcome | Welcome to your personal learning space. We'd like to give you a quick tour to show you some of the areas you may find helpful | Manual         |

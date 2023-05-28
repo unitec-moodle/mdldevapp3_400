@@ -26,7 +26,7 @@ import * as Aria from 'core/aria';
 import {dispatchEvent} from 'core/event_dispatcher';
 import {debounce} from 'core/utils';
 import Pending from 'core/pending';
-// The jQuery module is only used for interacting with boost_app_busrap 4. It can we removed when MDL-71979 is integrated.
+// The jQuery module is only used for interacting with Boostrap 4. It can we removed when MDL-71979 is integrated.
 import jQuery from 'jquery';
 
 let backdropPromise = null;
@@ -158,7 +158,7 @@ const disableDrawerTooltips = (drawerNode) => {
  */
 const disableButtonTooltip = (button, enableOnBlur) => {
     if (button.hasAttribute('data-original-title')) {
-        // The jQuery is still used in boost_app_busrap 4. It can we removed when MDL-71979 is integrated.
+        // The jQuery is still used in Boostrap 4. It can we removed when MDL-71979 is integrated.
         jQuery(button).tooltip('disable');
         button.setAttribute('title', button.dataset.originalTitle);
     } else {
@@ -196,7 +196,7 @@ const enableDrawerTooltips = (drawerNode) => {
  * @private
  */
 const enableButtonTooltip = (button) => {
-    // The jQuery is still used in boost_app_busrap 4. It can we removed when MDL-71979 is integrated.
+    // The jQuery is still used in Boostrap 4. It can we removed when MDL-71979 is integrated.
     if (button.hasAttribute('data-original-title')) {
         jQuery(button).tooltip('enable');
         button.removeAttribute('title');
@@ -434,7 +434,7 @@ export default class Drawers {
         // Remove open tooltip if still visible.
         let openButton = getDrawerOpenButton(this.drawerNode.id);
         if (openButton && openButton.hasAttribute('data-original-title')) {
-            // The jQuery is still used in boost_app_busrap 4. It can we removed when MDL-71979 is integrated.
+            // The jQuery is still used in Boostrap 4. It can we removed when MDL-71979 is integrated.
             jQuery(openButton)?.tooltip('hide');
         }
 
@@ -500,7 +500,7 @@ export default class Drawers {
         closeButton?.classList.toggle('hidden', true);
         // Remove the close button tooltip if visible.
         if (closeButton.hasAttribute('data-original-title')) {
-            // The jQuery is still used in boost_app_busrap 4. It can we removed when MDL-71979 is integrated.
+            // The jQuery is still used in Boostrap 4. It can we removed when MDL-71979 is integrated.
             jQuery(closeButton)?.tooltip('hide');
         }
 

@@ -23,7 +23,7 @@ use Behat\Mink\Exception\ElementNotFoundException as ElementNotFoundException;
 use Behat\Mink\Exception\ExpectationException as ExpectationException;
 
 /**
- * Step definitions related to the navigation in the boost_app_bus theme.
+ * Step definitions related to the navigation in the Boost theme.
  *
  * @package    theme_boost_app_bus
  * @category   test
